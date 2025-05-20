@@ -1,6 +1,7 @@
-Name,Value
-Alpha,10
-Bravo,25
-Charlie,15
-Delta,30
-Echo,5
+ClientID,ClientName,AssetType,AssetID,Model,Manufacturer,InstallationDate,Status,LastStatusUpdate,Location,LinkedTo
+C001,ABC Utilities,Meter,MTR123456,EM6400,Schneider,2022-05-12,Active,2024-12-01,New York City,RF1001
+C001,ABC Utilities,RF Module,RF1001,RF-LinkX,Landis+Gyr,2022-05-10,Active,2024-12-01,New York City,GW2001
+C001,ABC Utilities,Gateway,GW2001,Edge-GW500,Cisco,2022-05-01,Active,2024-12-01,New York City,N/A
+C002,XYZ Energy,Meter,MTR987654,SM3700,Elster,2023-01-15,Inactive,2024-10-01,Los Angeles,RF2002
+C002,XYZ Energy,RF Module,RF2002,RF-ZM,Kamstrup,2023-01-13,Faulty,2024-09-10,Los Angeles,GW3001
+C002,XYZ Energy,Gateway,GW3001,AMI-GW200,GE,2022-12-20,Active,2024-12-01,Los Angeles,N/A
