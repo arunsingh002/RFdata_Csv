@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSV Viewer</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2em; }
+    .logout { float: right; }
+    table { border-collapse: collapse; width: 80%; margin-top: 20px;}
+    th, td { border: 1px solid #ccc; padding: 8px; }
+    th { background: #f9f9f9; }
+    #chart-container { width: 80%; margin-top: 40px;}
+  </style>
+</head>
+<body>
+  <button class="logout" onclick="logout()">Logout</button>
+  <h2>CSV File Viewer and Chart</h2>
+  <div id="output"></div>
+  <div id="chart-container">
+    <canvas id="csvChart"></canvas>
+  </div>
+  <script>
+    // Auth check
+    if (sessionStorage.getItem("loggedIn") !== "yes") {
+      window.location = "login.html";
+    }
+    function logout() {
+      sessionStorage.removeItem("loggedIn");
+      window.location = "login.html";
+    }
+
+    let chartInstance = null;
+    // Load CSV on page load
+    window.onload = function() {
+      fetch('data.csv')
+        .then(response => response.text())
+        .then(text => {
+          const data = parseCSV(text);
+          renderTable(data);
+          if (data.length > 1 && data[0].length > 1) {
+            renderChart(data);
+          }
+        })
+        .catch(err => {
+          document.getElementById('output').innerHTML = "<p style='color:red;'>Failed to load CSV file.</p>";
+        });
+    };
+
+    function parseCSV(text) {
+      // Simple CSV parser; assumes no quotes or commas in data
+      return text.trim().split('\n').map(row => row.split(','));
+    }
+
+    function renderTable(data) {
+      let html = '<table>';
+      data.forEach((row, i) => {
+        html += '<tr>' + row.map(cell =>
+          i === 0 ? `<th>${cell ?? ""}</th>` : `<td>${cell ?? ""}</td>`
+        ).join('') + '</tr>';
+      });
+      html += '</table>';
+      document.getElementById('output').innerHTML = html;
+    }
+
+    function renderChart(data) {
+      const labels = data.slice(1).map(row => row[0]);
+      const values = data.slice(1).map(row => Number(row[1]) || 0);
+      const ctx = document.getElementById('csvChart').getContext('2d');
+      if(chartInstance) chartInstance.destroy();
+      chartInstance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: data[0][1] || 'Value',
+            data: values,
+            backgroundColor: 'rgba(54, 162, 235, 0.6)'
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { display: true } },
+          scales: { y: { beginAtZero: true } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | CSV Viewer</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f1f1f1; }
+    .login-container { background: #fff; padding: 2em; margin: 80px auto; max-width: 350px; border-radius: 8px; box-shadow: 0 2px 8px #ccc; }
+    h2 { text-align: center; }
+    label { display: block; margin: 1em 0 0.2em; }
+    input[type="text"], input[type="password"] { width: 100%; padding: 0.7em; border: 1px solid #ccc; border-radius: 4px; }
+    button { width: 100%; padding: 0.8em; background: #1976d2; color: #fff; border: none; border-radius: 4px; margin-top: 1.2em; font-size: 1em; cursor: pointer; }
+    .error { color: red; margin-top: 1em; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="username">Username</label>
+      <input type="text" id="username" required />
+      <label for="password">Password</label>
+      <input type="password" id="password" required />
+      <button type="submit">Login</button>
+      <div class="error" id="loginError"></div>
+    </form>
+  </div>
+  <script>
+    document.getElementById('loginForm').onsubmit = function(e) {
+      e.preventDefault();
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+      // Demo credentials: user / pass123
+      if (username === "user" && password === "pass123") {
+        sessionStorage.setItem("loggedIn", "yes");
+        window.location = "index.html";
+      } else {
+        document.getElementById('loginError').textContent = "Invalid username or password.";
+      }
+    };
+  </script>
+</body>
+</html>
