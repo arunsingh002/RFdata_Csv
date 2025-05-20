@@ -1,12 +1,5 @@
-| AssetID | AssetType   | Serial Number | Model    | Manufacturer       | Firmware | MAC Address          | Install Date | Status   | Client        | Project            | Location      |
-| ------- | ----------- | ------------- | -------- | ------------------ | -------- | -------------------- | ------------ | -------- | ------------- | ------------------ | ------------- |
-| RF0001  | RF Module   | SN-RF0001     | RF-LinkX | Landis+Gyr         | 4.9.4    | 78:14:71:4E\:CB:14   | 2025-04-27   | Active   | XYZ Energy    | AMI Phase 2        | Chicago       |
-| GW0002  | Gateway     | SN-GW0002     | GW500    | Huawei             | 2.0.4    | F5\:B0:57:0D\:CA\:FB | 2025-04-26   | Inactive | DEF Power     | AMI Phase 2        | New York City |
-| GW0003  | Gateway     | SN-GW0003     | GW200    | Cisco              | 4.9.6    | F6:71:5B\:C0\:C6\:F2 | 2025-04-05   | Active   | XYZ Energy    | Smart Grid Rollout | Chicago       |
-| RF0004  | RF Module   | SN-RF0004     | RF-LinkX | Aclara             | 2.9.3    | 83\:E8\:D6:21:33\:C1 | 2025-03-24   | Active   | ABC Utilities | AMI Phase 1        | New York City |
-| MTR0005 | Smart Meter | SN-MTR0005    | SM500    | Elster             | 3.0.8    | 1B\:D0:67:45:0F\:EE  | 2025-01-02   | Active   | ABC Utilities | AMI Phase 2        | Chicago       |
-| MTR0006 | Smart Meter | SN-MTR0006    | SM500    | Schneider Electric | 4.4.8    | 31\:A9:4F:84\:DB:6F  | 2025-03-24   | Faulty   | XYZ Energy    | Smart Grid Rollout | Chicago       |
-| RF0007  | RF Module   | SN-RF0007     | RF-LinkX | Aclara             | 1.6.9    | D4\:EB:76:36:6C:78   | 2025-03-24   | Active   | DEF Power     | AMI Phase 1        | Los Angeles   |
-| RF0008  | RF Module   | SN-RF0008     | RF-LinkX | Aclara             | 4.0.1    | A9:19\:AE:8E:84\:E7  | 2025-02-12   | Inactive | XYZ Energy    | AMI Phase 2        | Chicago       |
-| RF0009  | RF Module   | SN-RF0009     | RF-Turbo | Landis+Gyr         | 4.5.7    | E5:2A:2B:71\:A6:1A   | 2025-02-06   | Faulty   | XYZ Energy    | Smart Grid Rollout | Chicago       |
-| GW0010  | Gateway     | SN-GW0010     | GW500    | Huawei             | 2.6.0    | 64\:D3\:F6:8C:88\:FE | 2025-01-21   | Active   | XYZ Energy    | Smart Grid Rollout | Chicago       |
+AssetID	AssetType	DeviceSer	ModelNum	Manufact	Firmware	MACAdd	Status	BatteryLevel	SignalStrength	Latitude	Longitude	Location	ClientName	Notes
+Filter by AssetIDGW0002GW0003RF0001	Filter by AssetTypeGatewayRF Module	Filter by DeviceSerSN-GW0002SN-GW0003SN-RF0001	Filter by ModelNumGW200GW500RF-LinkX	Filter by ManufactCiscoHuaweiLandis+Gyr	Filter by Firmware2.0.44.9.44.9.6	Filter by MACAddA4:5E:60:14:24:81F5:B0:87:16:24:85F6:71:B5:16:24:85	Filter by StatusActiveInactive	Filter by BatteryLevel10086	Filter by SignalStrength-69-81	Filter by Latitude40.712841.8781	Filter by Longitude-74.006-87.6298	Filter by LocationChicagoNew York	Filter by ClientNameDEF PowerXYZ Energy	Filter by NotesGateway for Chicago deploymentGateway for New York City deploymentRF Module for Chicago deployment
+GW0002	Gateway	SN-GW0002	GW500	Huawei	2.0.4	F5:B0:87:16:24:85	Inactive	100	-81	40.7128	-74.006	New York	DEF Power	Gateway for New York City deployment
+GW0003	Gateway	SN-GW0003	GW200	Cisco	09-04-2006	F6:71:B5:16:24:85	Active	100	-69	41.8781	-87.6298	Chicago	XYZ Energy	Gateway for Chicago deployment
+RF0001	RF Module	SN-RF0001	RF-LinkX	Landis+Gyr	09-04-2004	A4:5E:60:14:24:81	Active	86	-81	41.8781	-87.6298	Chicago	XYZ Energy	RF Module for Chicago deployment
